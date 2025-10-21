@@ -5,3 +5,12 @@ export const notesTable = pgTable("notes", {
   text: varchar({ length: 255 }),
   createdAt: timestamp("created_at").defaultNow(),
 });
+
+import * as authSchema from "./auth-schema";
+
+export const schema = {
+  ...authSchema,
+  notesTable,
+};
+
+export * from "./auth-schema";
